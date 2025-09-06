@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024 Your Name
+ * SPDX-License-Identifier: Apache-2.0
+ */
+//Three signals needs to be on within 6s to turn on the output.
+
 `default_nettype none
 `timescale 1ns/1ns
 
