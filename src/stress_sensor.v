@@ -22,17 +22,17 @@ always @(posedge clk or posedge reset) begin
         timer3 <= 0;
     end else begin
         if (signal1)
-            timer1 <= 16'd60000;
+            timer1 <= 16'd6000;
         else if (timer1 > 0)
             timer1 <= timer1 - 1;
 
         if (signal2)
-            timer2 <= 16'd60000;
+            timer2 <= 16'd6000;
         else if (timer2 > 0)
             timer2 <= timer2 - 1;
 
         if (signal3)
-            timer3 <= 16'd60000;
+            timer3 <= 16'd6000;
         else if (timer3 > 0)
             timer3 <= timer3 - 1;
     end
