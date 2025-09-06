@@ -16,4 +16,30 @@ module tt_um_stress_sensor (
     input  wire       rst_n     // reset_n - low to reset
 );
 
+    // Create a new reset; inverting.
+    wire reset = ~rst_n;
+    
+    // Map first 3 bits of ui_in to the inputs
+    wire sensor1 = ui_in[0];
+    wire sensor2 = ui_in[1];
+    wire sensor3 = ui_in[2];
+    
+    // Instantiate the original top module stress_sensor
+    stress_sensor to_tt (
+        .clk(clk),
+        .reset(reset),
+        .sensor1(sensor1),
+        .sensor2(sensor2),
+        .sensor3(sensor3),
+        .response(uo_out[0])   // map to uo_out[0]
+    );
+    
+    // Tie off the unused outputs
+    assign uo_out[7:1] = 7'b0;   // other output pins unused
+    assign uio_out     = 8'b0;   // don't drive bidirectional pins
+    assign uio_oe      = 8'b0;   // keep bidirectional pins as inputs (disabled)
+
+    // Silence unused input warnings
+    wire _unused = &{uio_in, ena, ui_in[7:3], 1'b0};
+
 endmodule
