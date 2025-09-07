@@ -19,7 +19,7 @@ module tt_um_stress_sensor (
     // Create a new reset; inverting.
     wire reset = ~rst_n;
     
-    // Map first 3 bits of ui_in to the inputs
+    // Map first 3 bits of ui_in to the inputs, and the output to the first output bit.
     wire sensor1 = ui_in[0];
     wire sensor2 = ui_in[1];
     wire sensor3 = ui_in[2];
