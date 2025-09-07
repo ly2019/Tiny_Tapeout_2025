@@ -31,7 +31,7 @@ async def test_project(dut):
     dut.ui_in.value = 0b00000101  
 
     # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, 6000)
+    await ClockCycles(dut.clk, 1)
 
     # output is 0 because not all three signals are 1.
     assert dut.uo_out.value == 0
