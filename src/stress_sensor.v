@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
-//Three signals needs to be on within 6s to turn on the output.
-
 `default_nettype none
 `timescale 1ns/1ns
 
@@ -28,24 +22,26 @@ always @(posedge clk or posedge reset) begin
         timer3 <= 0;
     end else begin
         if (signal1)
-            timer1 <= 16'd6000;
+            timer1 <= 16'd60000;
         else if (timer1 > 0)
             timer1 <= timer1 - 1;
 
         if (signal2)
-            timer2 <= 16'd6000;
+            timer2 <= 16'd60000;
         else if (timer2 > 0)
             timer2 <= timer2 - 1;
 
         if (signal3)
-            timer3 <= 16'd6000;
+            timer3 <= 16'd60000;
         else if (timer3 > 0)
             timer3 <= timer3 - 1;
     end
 end
 
 always @(*) begin
-    out = (timer1 > 0) && (timer2 > 0) && (timer3 > 0);
+    out = 1'b0; //default 
+    if ((timer1 > 0) && (timer2 > 0) && (timer3 > 0))
+    	out = 1'b1;
 end
 endmodule
 
@@ -93,7 +89,7 @@ module stress_sensor(
 wire signal_out;
 
 // Internal 1 kHz clock wire
-wire clk_1khz;
+wire clk_1khz ;
 
 // Instantiate clock divider
 clock_divider_1khz clkdiv (
