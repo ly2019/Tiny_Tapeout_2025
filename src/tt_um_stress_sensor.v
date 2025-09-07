@@ -24,7 +24,7 @@ module tt_um_stress_sensor (
     wire sensor2 = ui_in[1];
     wire sensor3 = ui_in[2];
 
-    wire response;
+    wire response ;
     
     // Instantiate the original top module stress_sensor
     stress_sensor to_tt (
@@ -33,7 +33,7 @@ module tt_um_stress_sensor (
         .sensor1(sensor1),
         .sensor2(sensor2),
         .sensor3(sensor3),
-        .response(response)
+    	.response(response)
     );
     
     // Tie off the unused outputs
