@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Three signals being on within the same time frame (6s with 100 MHz) triggers an alarm output
 
 ## How to test
 
-Explain how to use your project
+Connect inputs with external inputs (say three sensors, three buttons, etc.) and output to an LED.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Later one needs to connect the signals input to some sensors and output to a display, LED, or sound system.
